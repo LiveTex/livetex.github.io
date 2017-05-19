@@ -53,7 +53,15 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="../../api/getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
+<li >
     <a href="../../api/getDestinations/">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="../../api/getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -88,6 +96,10 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
+                            
+<li >
+    <a href="../../types/message/">Message</a>
+</li>
                         </ul>
                     </li>
                     <li class="dropdown active">
@@ -119,6 +131,35 @@
 </li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Websocket <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../websocket/Closed/">Closed</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/FileMessage/">FileMessage</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/HoldMessage/">HoldMessage</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/MessageDelivered/">MessageDelivered</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/SelectDestination/">SelectDestination</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/TextMessage/">TextMessage</a>
+</li>
+                        </ul>
+                    </li>
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -132,8 +173,8 @@
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../../websocket/Closed/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -192,7 +233,7 @@
   </tr>
   <tr>
     <td>timestamp</td>
-    <td>String</td>
+    <td>Long</td>
     <td>Да</td>
     <td>Время в формате Unix time</td>
   </tr>
