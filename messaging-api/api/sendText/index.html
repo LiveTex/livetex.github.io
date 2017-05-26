@@ -53,7 +53,15 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="../getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
+<li >
     <a href="../getDestinations/">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="../getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -88,6 +96,10 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
+                            
+<li >
+    <a href="../../types/message/">Message</a>
+</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -116,6 +128,35 @@
                             
 <li >
     <a href="../../webhooks/TextMessage/">TextMessage</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Websocket <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../websocket/Closed/">Closed</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/FileMessage/">FileMessage</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/HoldMessage/">HoldMessage</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/MessageDelivered/">MessageDelivered</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/SelectDestination/">SelectDestination</a>
+</li>
+                            
+<li >
+    <a href="../../websocket/TextMessage/">TextMessage</a>
 </li>
                         </ul>
                     </li>
@@ -159,7 +200,7 @@
   http://messaging.livetex.ru/&lt;version&gt;/sendText?key=&lt;authentication_key&gt;
 </code></pre>
 
-<p>Отправка текста в обращение от лица <em>собеседника</em>. В случае успешного запроса создается оповещение UserText, доступное собеседнику и агентам, обслуживающим обращение.</p>
+<p>Отправка текста в обращение от лица <em>собеседника</em>. В случае успешного запроса создается оповещение UserText, доступное собеседнику и операторам, обслуживающим обращение.</p>
 <h4 id="_2">Формат запроса</h4>
 <table>
   <tr>
