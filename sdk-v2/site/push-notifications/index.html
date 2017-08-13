@@ -103,9 +103,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#push-">PUSH-оповещения</a></li>
-            <li><a href="#_1">Функциональность</a></li>
-            <li><a href="#push-_1">PUSH-нотификации на стороне клиента</a></li>
-            <li><a href="#push-_2">PUSH-нотификации на стороне сервиса</a></li>
+            <li><a href="#push">Механизм работы PUSH уведомлений</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -120,28 +118,8 @@
 <li>В случае неактивности мобильного приложения с SDK для доставки оповещений могут
   использоваться специфичные для платформы сервисы PUSH-оповещений. <a href="https://developers.google.com/cloud-messaging/">GCM</a> в случае Android и
   <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html">APNS</a> для iOS.</li>
-<li>Также возможна интеграция, при которой оповещения отсылаются на сервера клиента.</li>
 </ul>
-<h2 id="_1">Функциональность</h2>
-<ul>
-<li>Различные приложения и девелоперы могут выбирать разную стратегию
-оповещения.</li>
-<li>Клиент может перенести всю логику оповещений на свою сторону.</li>
-<li>Клиент может оставить всю логику оповещений на нашей стороне.</li>
-<li>Стратегия оповещения может различаться для разных типов устройств.
-Может зависеть от типа платформы: Windows Phone, iOS, Android.</li>
-</ul>
-<h2 id="push-_1">PUSH-нотификации на стороне клиента</h2>
-<p>При данном способе интеграции LiveTex передает на сервера
-клиентов оповещения.</p>
-<p><img alt="Модель" src="http://goo.gl/IsRfoS" /></p>
-<!--
-@startuml
-!include "client-side-push-notification.puml"
-@enduml
--->
-
-<h2 id="push-_2">PUSH-нотификации на стороне сервиса</h2>
+<h2 id="push">Механизм работы PUSH уведомлений</h2>
 <p>При данном способе интеграции оповещения передаются через специфичные
 для платформы сервисы.</p>
 <p><img alt="Модель" src="http://goo.gl/UZQ2m6" /></p>
