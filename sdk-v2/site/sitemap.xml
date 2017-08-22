@@ -3,24 +3,24 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/faq/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/faq/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/push-notifications/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/push-notifications/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,8 +28,8 @@
     
         
     <url>
-     <loc>None/android/example/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/android/example/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -38,14 +38,14 @@
     
         
     <url>
-     <loc>None/ios/objective-c/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/ios/objective-c/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ios/swift/</loc>
-     <lastmod>2016-09-27</lastmod>
+     <loc>/ios/swift/</loc>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
