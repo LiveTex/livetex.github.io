@@ -118,42 +118,41 @@
 сохраненный токен необходимо использовать во всех последующих инициализациях SDK.</p>
 <p>Android:</p>
 <ul>
-<li>На Android полученный от сервера токен передается в обработчик инициализации <a href="../TBD">sdk.handler.IInitHandler</a>.</li>
-<li>Для последующего восстановления токен необходимо передать в метод <a href="../TBD">Livetex.Builder#addToken</a></li>
-<li>Запросить историю обращения методом <a href="../TBD">Livetex#messageHistory</a></li>
+<li>На Android полученный от сервера токен передается в обработчик инициализации <a href="https://livetex.github.io/sdk-v2/generated/android/sdk/Livetex.html#init-sdk.handler.IInitHandler-">Livetex.init</a>.</li>
+<li>Для последующего восстановления токен необходимо передать в метод <a href="https://livetex.github.io/sdk-v2/generated/android/sdk/Livetex.Builder.html#addToken-java.lang.String-">Livetex.Builder#addToken</a></li>
+<li>Запросить историю обращения методом <a href="https://livetex.github.io/sdk-v2/generated/android/sdk/Livetex.html#getHistory-long-long-sdk.handler.AHandler-">Livetex#getHistory</a></li>
 </ul>
 <p>iOS:</p>
 <ul>
-<li>На iOS полученный от сервера токен передается в обработчик вызова <a href="../TBD">LCCoreService#startServiceWithHandler</a>.</li>
-<li>Для последующего восстановления токен необходимо передать в метод <a href="../TBD">LCCoreService#initWithURL</a></li>
-<li>Запросить историю обращения методом <a href="../TBD">LCCoreService#messageHistory</a></li>
+<li>На iOS полученный от сервера токен передается в обработчик вызова <a href="https://livetex.github.io/sdk-v2/generated/ios/index.html#//apple_ref/c/func/startServiceWithCompletionHandler:">LCCoreService#startServiceWithHandler</a>.</li>
+<li>Для последующего восстановления токен необходимо передать в метод <a href="https://livetex.github.io/sdk-v2/generated/ios/index.html#//apple_ref/c/func/initWithURL:appID:appKey:token:deviceToken:callbackQueue:delegateQueue:">LCCoreService#initWithURL</a></li>
+<li>Запросить историю обращения методом <a href="https://livetex.github.io/sdk-v2/generated/ios/index.html#//apple_ref/c/func/messageHistory:offset:completionHandler:">LCCoreService#messageHistory</a></li>
 </ul>
 <h3 id="capabilities">Что такое Capabilities и зачем их передавать при инициализации?</h3>
 <p>С помощью механизма Capabilities разработчики могут оповещать серерную часть Livetex о реализованных
 в приложении возможностях. Например, если разработчик мобильного приложения не реализовал поддержку
-приема файлов от оператора, механизмом Capabilities можно запретить передачу файлов оператором. См.
-<a href="../Capabilities">Capabilities</a></p>
+приема файлов от оператора, механизмом Capabilities можно запретить передачу файлов оператором.</p>
 <h3 id="_2">Что произойдет если оператор выйдет в оффлайн?</h3>
 <p>При выходе оператора в offline будет передано оповещение от сервера.
 Оповещение будет содержать пустое поле employee.</p>
 <p>iOS:</p>
 <ul>
-<li><a href="../tbd">LCCoreServiceDelegate#updateDialogState</a></li>
+<li><a href="https://livetex.github.io/sdk-v2/generated/ios/Protocols/LCCoreServiceDelegate/index.html#//apple_ref/occ/intfm/LCCoreServiceDelegate/updateDialogState:">LCCoreServiceDelegate#updateDialogState</a></li>
 </ul>
 <p>Android:</p>
 <ul>
-<li><a href="../tbd">INotificationDialogHandler#updateDialogState</a></li>
+<li><a href="https://livetex.github.io/sdk-v2/generated/android/sdk/handler/INotificationDialogHandler.html#updateDialogState-sdk.models.LTDialogState-">INotificationDialogHandler#updateDialogState</a></li>
 </ul>
 <h3 id="_3">Что произойдет при передаче обращения другому оператору?</h3>
 <p>При выходе оператора в offline будет передано оповещение от сервера.
 Оповещение будет содержать поле employee c информацией о новом назнаечнном операторе.</p>
 <p>iOS:</p>
 <ul>
-<li><a href="../tbd">LCCoreServiceDelegate#updateDialogState</a></li>
+<li><a href="https://livetex.github.io/sdk-v2/generated/ios/Protocols/LCCoreServiceDelegate/index.html#//apple_ref/occ/intfm/LCCoreServiceDelegate/updateDialogState:">LCCoreServiceDelegate#updateDialogState</a></li>
 </ul>
 <p>Android:</p>
 <ul>
-<li><a href="../tbd">INotificationDialogHandler#updateDialogState</a></li>
+<li><a href="https://livetex.github.io/sdk-v2/generated/android/sdk/handler/INotificationDialogHandler.html#updateDialogState-sdk.models.LTDialogState-">INotificationDialogHandler#updateDialogState</a></li>
 </ul></div>
         </div>
 
