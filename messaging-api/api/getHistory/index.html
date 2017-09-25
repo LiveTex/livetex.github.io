@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Closed - LiveTex Messaging API</title>
+        <title>getHistory - LiveTex Messaging API</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -48,36 +48,36 @@
                     <li >
                         <a href="../..">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Api <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../api/getDestinations/">getDestinations</a>
+    <a href="../getDestinations/">getDestinations</a>
+</li>
+                            
+<li class="active">
+    <a href="./">getHistory</a>
 </li>
                             
 <li >
-    <a href="../../api/getHistory/">getHistory</a>
+    <a href="../getWebhookSettings/">getWebhookSettings</a>
 </li>
                             
 <li >
-    <a href="../../api/getWebhookSettings/">getWebhookSettings</a>
+    <a href="../selectDestination/">selectDestination</a>
 </li>
                             
 <li >
-    <a href="../../api/selectDestination/">selectDestination</a>
+    <a href="../sendFile/">sendFile</a>
 </li>
                             
 <li >
-    <a href="../../api/sendFile/">sendFile</a>
+    <a href="../sendText/">sendText</a>
 </li>
                             
 <li >
-    <a href="../../api/sendText/">sendText</a>
-</li>
-                            
-<li >
-    <a href="../../api/setWebhook/">setWebhook</a>
+    <a href="../setWebhook/">setWebhook</a>
 </li>
                         </ul>
                     </li>
@@ -98,32 +98,32 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhooks <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li class="active">
-    <a href="./">Closed</a>
+<li >
+    <a href="../../webhooks/Closed/">Closed</a>
 </li>
                             
 <li >
-    <a href="../FileMessage/">FileMessage</a>
+    <a href="../../webhooks/FileMessage/">FileMessage</a>
 </li>
                             
 <li >
-    <a href="../HoldMessage/">HoldMessage</a>
+    <a href="../../webhooks/HoldMessage/">HoldMessage</a>
 </li>
                             
 <li >
-    <a href="../MessageDelivered/">MessageDelivered</a>
+    <a href="../../webhooks/MessageDelivered/">MessageDelivered</a>
 </li>
                             
 <li >
-    <a href="../SelectDestination/">SelectDestination</a>
+    <a href="../../webhooks/SelectDestination/">SelectDestination</a>
 </li>
                             
 <li >
-    <a href="../TextMessage/">TextMessage</a>
+    <a href="../../webhooks/TextMessage/">TextMessage</a>
 </li>
                         </ul>
                     </li>
@@ -136,12 +136,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../../types/message/">
+                        <a rel="next" href="../getDestinations/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../FileMessage/">
+                        <a rel="prev" href="../getWebhookSettings/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -153,14 +153,22 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#closed">Closed</a></li>
+        <li class="main active"><a href="#gethistory">getHistory</a></li>
+            <li><a href="#_1">Пример</a></li>
+            <li><a href="#_2">Формат запроса</a></li>
+            <li><a href="#_3">Формат ответа</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="closed">Closed</h3>
-<p>Оповещение о <em>закрытии обращения</em> со стороны оператора.</p>
-<p>Формат оповещения:</p>
+<h3 id="gethistory">getHistory</h3>
+<h4 id="_1">Пример</h4>
+<pre><code class="bash">curl -XPOST -d'{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;offset&quot;: 10, &quot;older_then_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;}' \
+  http://messaging.livetex.ru/&lt;version&gt;/getHistory?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Запрос истории общения <em>собеседника</em>.</p>
+<h4 id="_2">Формат запроса</h4>
 <table>
   <tr>
     <td><b>Имя</b></td>
@@ -169,46 +177,68 @@
     <td><b>Комментарий</b></td>
   </tr>
   <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Константа - "Closed".</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Уникальный строковый идентификатор сообщения.</td>
-  </tr>
-  <tr>
-    <td>webhook_key</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Аутентификационный ключ внешнего канала.</td>
-  </tr>
-  <tr>
     <td>user_id</td>
     <td>String</td>
     <td>Да</td>
-    <td>Уникальный идентификатор собеседника в точке контакта, задается на клиенте.</td>
+    <td>Идентификатор собеседника в точке контакта. Задается на стороне клиента</td>
   </tr>
   <tr>
-    <td>touch_point_id</td>
+    <td>limit</td>
+    <td>Long</td>
+    <td>Нет</td>
+    <td>Количество запрашиваемых сообщений. Ответ будет содержать количество сообщений не более укзаанного значения. Если значение не указано, то используется значение по умолчанию - 20.</td>
+  </tr>
+  <tr>
+    <td>older_then_id</td>
     <td>String</td>
-    <td>Да</td>
-    <td>Идентификатор точки контакта, в которой идет общение.</td>
+    <td>Нет</td>
+    <td>Отдавать только сообщения старше, чем указанное. Если идентификатор не указан, то отдаются сообщения начиная с последнего созданного.</td>
+  </tr>
+</table>
+
+<h4 id="_3">Формат ответа</h4>
+<table>
+  <tr>
+    <td><b>Имя</b></td>
+    <td><b>Тип</b></td>
+    <td><b>Обязательный</b></td>
+    <td><b>Комментарий</b></td>
   </tr>
   <tr>
-    <td>employee</td>
-    <td>Employee</td>
+    <td>success</td>
+    <td>Boolean</td>
     <td>Да</td>
-    <td>Оператор закрывший обращение.</td>
+    <td>Проверка успешности выполнения запроса</td>
   </tr>
   <tr>
-    <td>timestamp</td>
+    <td>messages</td>
+    <td>List[Message]</td>
+    <td>Да</td>
+    <td>Список сообщений.</td>
+  </tr>  
+  <tr>
+    <td>limit</td>
     <td>Long</td>
     <td>Да</td>
-    <td>Время в формате Unix time</td>
+    <td>Количество запрашиваемых сообщений.</td>
+  </tr>
+  <tr>
+    <td>total</td>
+    <td>Long</td>
+    <td>Да</td>
+    <td>Общее число сообщений в истории.</td>
+  </tr>  
+  <tr>
+    <td>error_message</td>
+    <td>String</td>
+    <td>Нет</td>
+    <td>Описание ошибки</td>
+  </tr>
+  <tr>
+    <td>error_code</td>
+    <td>Integer</td>
+    <td>Нет</td>
+    <td>Код ошибки. Для возможности интернационализации</td>
   </tr>
 </table></div>
         </div>
