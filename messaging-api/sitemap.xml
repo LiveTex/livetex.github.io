@@ -12,12 +12,6 @@
     
         
     <url>
-     <loc>/api/getCurrentDestination/</loc>
-     <lastmod>2017-09-25</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/api/getDestinations/</loc>
      <lastmod>2017-09-25</lastmod>
      <changefreq>daily</changefreq>
