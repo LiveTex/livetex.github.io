@@ -53,7 +53,15 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="api/getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
+<li >
     <a href="api/getDestinations/">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="api/getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -87,6 +95,10 @@
                             
 <li >
     <a href="types/employee/">Employee</a>
+</li>
+                            
+<li >
+    <a href="types/message/">Message</a>
 </li>
                         </ul>
                     </li>
@@ -133,7 +145,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="api/getDestinations/">
+                        <a rel="prev" href="api/getCurrentDestination/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -175,6 +187,9 @@
 </li>
 <li>
 <p>Доменное имя сервиса: <a href="http://messaging.livetex.ru/1.0/">https://messaging.livetex.ru/1.0/</a> в случае Livetex облака. При развертывании будет отличаться.</p>
+</li>
+<li>
+<p>Адрес для получения оповещений по Websocket: <a href="http://messaging.livetex.ru/1.0/ws">https://messaging.livetex.ru/1.0/ws</a></p>
 </li>
 </ul>
 <h2 id="_1"><strong>Базовые понятия</strong></h2>
@@ -225,6 +240,7 @@
 <ul>
 <li><a href="types/destination/">Destination</a></li>
 <li><a href="types/employee/">Employee</a></li>
+<li><a href="types/message/">Message</a></li>
 </ul>
 <h2 id="messaging-api"><strong>Методы Messaging API</strong></h2>
 <ul>
@@ -232,6 +248,8 @@
 <li><a href="api/sendFile/">sendFile</a></li>
 <li><a href="api/selectDestination/">selectDestination</a></li>
 <li><a href="api/getDestinations/">getDestinations</a></li>
+<li><a href="api/getHistory/">getHistory</a></li>
+<li><a href="api/getCurrentDestination/">getCurrentDestination</a></li>
 </ul>
 <p>Все HTTP запросы, подразумевающие наличие JSON в теле запрос, должны содержать следующие http-заголовки:
 - Content-Type: "application/json"
@@ -248,6 +266,7 @@
 <li><a href="webhooks/FileMessage/">FileMessage</a></li>
 <li><a href="webhooks/SelectDestination/">SelectDestination</a></li>
 <li><a href="webhooks/HoldMessage/">HoldMessage</a></li>
+<li><a href="webhooks/Closed/">Closed</a></li>
 </ul>
 <h2 id="http"><strong>Статусы HTTP ответов</strong></h2>
 <p>В случае успешной обработки LiveTex возвращает ответ с кодом 200. Прочие поддерживаемые статусы: 400, 401, 404, 500</p>
@@ -339,6 +358,6 @@
 </html>
 
 <!--
-MkDocs version : 0.16.1
-Build Date UTC : 2017-04-20 12:29:17
+MkDocs version : 0.16.3
+Build Date UTC : 2017-09-25 11:41:01
 -->

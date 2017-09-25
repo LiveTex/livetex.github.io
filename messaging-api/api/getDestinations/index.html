@@ -52,8 +52,16 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Api <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
+<li >
+    <a href="../getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
 <li class="active">
     <a href="./">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="../getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -87,6 +95,10 @@
                             
 <li >
     <a href="../../types/employee/">Employee</a>
+</li>
+                            
+<li >
+    <a href="../../types/message/">Message</a>
 </li>
                         </ul>
                     </li>
@@ -128,12 +140,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../..">
+                        <a rel="next" href="../getCurrentDestination/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../getWebhookSettings/">
+                        <a rel="prev" href="../getHistory/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -174,7 +186,7 @@
   </tr>
   <tr>
     <td>destinations</td>
-    <td>List<Destination></td>
+    <td>List[Destination]</td>
     <td>Да</td>
     <td>Направление маршрутизации обращения</td>
   </tr>

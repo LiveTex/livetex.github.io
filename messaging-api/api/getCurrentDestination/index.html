@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>TextMessage - LiveTex Messaging API</title>
+        <title>getCurrentDestination - LiveTex Messaging API</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -48,40 +48,40 @@
                     <li >
                         <a href="../..">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Api <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../../api/getCurrentDestination/">getCurrentDestination</a>
+<li class="active">
+    <a href="./">getCurrentDestination</a>
 </li>
                             
 <li >
-    <a href="../../api/getDestinations/">getDestinations</a>
+    <a href="../getDestinations/">getDestinations</a>
 </li>
                             
 <li >
-    <a href="../../api/getHistory/">getHistory</a>
+    <a href="../getHistory/">getHistory</a>
 </li>
                             
 <li >
-    <a href="../../api/getWebhookSettings/">getWebhookSettings</a>
+    <a href="../getWebhookSettings/">getWebhookSettings</a>
 </li>
                             
 <li >
-    <a href="../../api/selectDestination/">selectDestination</a>
+    <a href="../selectDestination/">selectDestination</a>
 </li>
                             
 <li >
-    <a href="../../api/sendFile/">sendFile</a>
+    <a href="../sendFile/">sendFile</a>
 </li>
                             
 <li >
-    <a href="../../api/sendText/">sendText</a>
+    <a href="../sendText/">sendText</a>
 </li>
                             
 <li >
-    <a href="../../api/setWebhook/">setWebhook</a>
+    <a href="../setWebhook/">setWebhook</a>
 </li>
                         </ul>
                     </li>
@@ -102,32 +102,32 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhooks <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Closed/">Closed</a>
+    <a href="../../webhooks/Closed/">Closed</a>
 </li>
                             
 <li >
-    <a href="../FileMessage/">FileMessage</a>
+    <a href="../../webhooks/FileMessage/">FileMessage</a>
 </li>
                             
 <li >
-    <a href="../HoldMessage/">HoldMessage</a>
+    <a href="../../webhooks/HoldMessage/">HoldMessage</a>
 </li>
                             
 <li >
-    <a href="../MessageDelivered/">MessageDelivered</a>
+    <a href="../../webhooks/MessageDelivered/">MessageDelivered</a>
 </li>
                             
 <li >
-    <a href="../SelectDestination/">SelectDestination</a>
+    <a href="../../webhooks/SelectDestination/">SelectDestination</a>
 </li>
                             
-<li class="active">
-    <a href="./">TextMessage</a>
+<li >
+    <a href="../../webhooks/TextMessage/">TextMessage</a>
 </li>
                         </ul>
                     </li>
@@ -140,12 +140,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../SelectDestination/">
+                        <a rel="next" href="../..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../getDestinations/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -157,14 +157,21 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#textmessage">TextMessage</a></li>
+        <li class="main active"><a href="#getcurrentdestination">getCurrentDestination</a></li>
+            <li><a href="#_1">Пример</a></li>
+            <li><a href="#_2">Формат запроса</a></li>
+            <li><a href="#_3">Формат ответа</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="textmessage"><strong>TextMessage</strong></h3>
-<p>Оповещение о новом текстовом сообщении от <em>оператора</em>.</p>
-<p>Формат оповещения:</p>
+<h3 id="getcurrentdestination">getCurrentDestination</h3>
+<h4 id="_1">Пример</h4>
+<pre><code class="bash">curl -XPOST -d'{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;}' http://messaging.livetex.ru/&lt;version&gt;/getCurrentDestination?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Получение выбранного для маршрутизации направления</p>
+<h4 id="_2">Формат запроса</h4>
 <table>
   <tr>
     <td><b>Имя</b></td>
@@ -173,46 +180,44 @@
     <td><b>Комментарий</b></td>
   </tr>
   <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Константа - "TextMessage"</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Уникальный строковый идентификатор сообщения</td>
-  </tr>
-  <tr>
-    <td>webhook_key</td>
-    <td>String</td>
-    <td>Да</td>
-    <td>Аутентификационный ключ внешнего канала</td>
-  </tr>
-  <tr>
     <td>user_id</td>
     <td>String</td>
     <td>Да</td>
     <td>Идентификатор собеседника в точке контакта. Задается на стороне клиента</td>
   </tr>
+</table>
+
+<h4 id="_3">Формат ответа</h4>
+<table>
   <tr>
-    <td>employee</td>
-    <td>Employee</td>
-    <td>Да</td>
-    <td>Оператор, приславший сообщение</td>
+    <td><b>Имя</b></td>
+    <td><b>Тип</b></td>
+    <td><b>Обязательный</b></td>
+    <td><b>Комментарий</b></td>
   </tr>
   <tr>
-    <td>timestamp</td>
-    <td>Long</td>
+    <td>success</td>
+    <td>Boolean</td>
     <td>Да</td>
-    <td>Время в формате Unix time</td>
+    <td>Проверка успешности выполнения запроса</td>
   </tr>
   <tr>
-    <td>text</td>
+    <td>destination</td>
+    <td>Destination</td>
+    <td>Нет</td>
+    <td>Выбранное направление маршрутизации обращения. В случае отсутствия поля направление не было выбрано.</td>
+  </tr>
+  <tr>
+    <td>error_message</td>
     <td>String</td>
-    <td>Да</td>
-    <td>Текстовое сообщение, отправленное собеседником</td>
+    <td>Нет</td>
+    <td>Описание ошибки</td>
+  </tr>
+  <tr>
+    <td>error_code</td>
+    <td>Integer</td>
+    <td>Нет</td>
+    <td>Код ошибки. Для возможности интернационализации</td>
   </tr>
 </table></div>
         </div>
