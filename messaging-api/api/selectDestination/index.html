@@ -88,10 +88,6 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="../../types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -159,7 +155,7 @@
 
 <h3 id="selectdestination">selectDestination</h3>
 <h4 id="_1">Пример</h4>
-<pre><code class="bash">curl -XPOST -d'{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;destination_type&quot;: &quot;TouchPoint&quot;, &quot;destination_id&quot;: &quot;&lt;touchpoint_id&gt;&quot;}' \
+<pre><code class="bash">curl -XPOST -d'{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;destination_type&quot;: &quot;Department&quot;, &quot;destination_id&quot;: &quot;&lt;department_id&gt;&quot;}' \
    http://messaging.livetex.ru/&lt;version&gt;/selectDestination?key=&lt;authentication_key&gt;
 </code></pre>
 
@@ -182,7 +178,7 @@
     <td>destination_type</td>
     <td>String</td>
     <td>Да</td>
-    <td>Тип направления маршрутизации. Доступны два значения: "TouchPoint", "Department"</td>
+    <td>Тип направления маршрутизации. Доступное значение: "Department"</td>
   </tr>
   <tr>
     <td>destination_id</td>

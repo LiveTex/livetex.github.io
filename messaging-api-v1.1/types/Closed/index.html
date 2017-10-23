@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Message - LiveTex Messaging API</title>
+        <title>Closed - LiveTex Messaging API</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -53,7 +53,15 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="../../api/getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
+<li >
     <a href="../../api/getDestinations/">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="../../api/getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -81,45 +89,40 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Types <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
+<li class="active">
+    <a href="./">Closed</a>
+</li>
+                            
+<li >
+    <a href="../DestinationSelected/">DestinationSelected</a>
+</li>
+                            
+<li >
+    <a href="../FileMessage/">FileMessage</a>
+</li>
+                            
+<li >
+    <a href="../HoldMessage/">HoldMessage</a>
+</li>
+                            
+<li >
+    <a href="../MessageDelivered/">MessageDelivered</a>
+</li>
+                            
+<li >
+    <a href="../SelectDestination/">SelectDestination</a>
+</li>
+                            
+<li >
+    <a href="../TextMessage/">TextMessage</a>
+</li>
+                            
 <li >
     <a href="../destination/">Destination</a>
 </li>
                             
 <li >
     <a href="../employee/">Employee</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Message</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhooks <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../webhooks/Closed/">Closed</a>
-</li>
-                            
-<li >
-    <a href="../../webhooks/FileMessage/">FileMessage</a>
-</li>
-                            
-<li >
-    <a href="../../webhooks/HoldMessage/">HoldMessage</a>
-</li>
-                            
-<li >
-    <a href="../../webhooks/MessageDelivered/">MessageDelivered</a>
-</li>
-                            
-<li >
-    <a href="../../webhooks/SelectDestination/">SelectDestination</a>
-</li>
-                            
-<li >
-    <a href="../../webhooks/TextMessage/">TextMessage</a>
 </li>
                         </ul>
                     </li>
@@ -132,12 +135,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../employee/">
+                        <a rel="next" href="../../api/setWebhook/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../webhooks/Closed/">
+                        <a rel="prev" href="../DestinationSelected/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -149,13 +152,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#_1">Сообщение</a></li>
+        <li class="main active"><a href="#closed">Closed</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="_1"><strong>Сообщение</strong></h3>
-<p>Сообщение в истории общения.</p>
+<h3 id="closed">Closed</h3>
+<p>Оповещение о <em>закрытии обращения</em> со стороны оператора.</p>
+<p>Формат оповещения:</p>
 <table>
   <tr>
     <td><b>Имя</b></td>
@@ -164,10 +168,10 @@
     <td><b>Комментарий</b></td>
   </tr>
   <tr>
-    <td>message_type</td>
+    <td>type</td>
     <td>String</td>
     <td>Да</td>
-    <td>Принимает значения - "TextMessage", "FileMessage"</td>
+    <td>Константа - "Closed".</td>
   </tr>
   <tr>
     <td>id</td>
@@ -176,58 +180,34 @@
     <td>Уникальный строковый идентификатор сообщения</td>
   </tr>
   <tr>
-    <td>user_id</td>
+    <td>webhook_key</td>
     <td>String</td>
     <td>Нет</td>
-    <td>Идентификатор собеседника. Указывается, когда сообщение было создано собеседником.</td>
+    <td>Аутентификационный ключ внешнего канала, отдается только в webhook. В истории отдаваться не будет</td>
+  </tr>
+  <tr>
+    <td>user_id</td>
+    <td>String</td>
+    <td>Да</td>
+    <td>Уникальный идентификатор собеседника в точке контакта, задается на клиенте</td>
+  </tr>
+  <tr>
+    <td>touch_point_id</td>
+    <td>String</td>
+    <td>Да</td>
+    <td>Идентификатор точки контакта, в которой идет общение</td>
   </tr>
   <tr>
     <td>employee</td>
     <td>Employee</td>
-    <td>Нет</td>
-    <td>Оператор. Указывается, когда сообщение было создано оператором.</td>
+    <td>Да</td>
+    <td>Оператор закрывший обращение</td>
   </tr>
   <tr>
     <td>timestamp</td>
-    <td>String</td>
+    <td>Long</td>
     <td>Да</td>
     <td>Время в формате Unix time</td>
-  </tr>
-  <tr>
-    <td>text</td>
-    <td>String</td>
-    <td>Нет</td>
-    <td>Текстовое сообщение. Указывается для сообщений с message_type равным "TextMessage".</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>String</td>
-    <td>Нет</td>
-    <td>Ссылка для скачивания файла. Указывается для сообщений с message_type равным "FileMessage".</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>Нет</td>
-    <td>Имя файла для скачивания. Указывается для сообщений с message_type равным "FileMessage".</td>
-  </tr>
-  <tr>
-    <td>size</td>
-    <td>Long</td>
-    <td>Нет</td>
-    <td>Размер файла в байтах. Указывается для сообщений с message_type равным "FileMessage".</td>
-  </tr>
-  <tr>
-    <td>comment</td>
-    <td>String</td>
-    <td>Нет</td>
-    <td>Комментарий к передаваемому файлу. Указывается для сообщений с message_type равным "FileMessage".</td>
-  </tr>
-  <tr>
-    <td>is_delivered</td>
-    <td>Boolean</td>
-    <td>Да</td>
-    <td>Было ли сообщение доставлено.</td>
   </tr>
 </table></div>
         </div>

@@ -52,41 +52,65 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#crm">Интеграция CRM</a></li>
-            <li><a href="#livetex">Получение профиля персоны из системы клиента LiveTex</a></li>
-            <li><a href="#livetex_1">Добавление профиля персоны в LiveTex</a></li>
-            <li><a href="#_1">Хеш строка</a></li>
-            <li><a href="#_2">Секретный ключ</a></li>
-            <li><a href="#livetex_2">Получение информации о персоне оператором LiveTex</a></li>
+            <li><a href="#_1">Компоненты</a></li>
+            <li><a href="#_2">Взаимодействие компонентов</a></li>
+            <li><a href="#livetex_3">Получение профиля персоны на стороне клиента LiveTex</a></li>
+            <li><a href="#livetex_4">Добавление профиля персоны в LiveTex</a></li>
+            <li><a href="#_3">Хеш строка</a></li>
+            <li><a href="#_4">Секретный ключ</a></li>
+            <li><a href="#livetex_5">Получение информации о персоне оператором LiveTex</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="crm">Интеграция CRM</h1>
-<p>Руководство по добавлению профиля персоны из внешней системы (напр. CRM) в LiveTex.</p>
-<h2 id="livetex">Получение профиля персоны из системы клиента LiveTex</h2>
+<p>Руководство по интеграции профиля персоны внешней системы (напр. CRM) с LiveTex.</p>
+<h2 id="_1">Компоненты</h2>
+<h3 id="livetex">Компоненты клиента LiveTex</h3>
+<ul>
+<li>Webserver - Сервер клиента</li>
+<li>WebApp - Веб приложение клиента (HTML, JS)</li>
+<li>API — API для получения профиля персоны (опционально)</li>
+</ul>
+<h3 id="livetex-widget">LiveTex Widget</h3>
+<ul>
+<li>API - <a href="https://livetex.github.io/widgets-api-3-0/">API виджета</a> LiveTex (JavaScript в браузере)</li>
+</ul>
+<h3 id="livetex-backend">LiveTex backend</h3>
+<ul>
+<li>WAPI — API для Widget</li>
+<li>Person-Service - Сервис профиля персоны</li>
+<li>PFS — Сервис доступности фич</li>
+</ul>
+<h3 id="ows-omniworkspace">OWS (OmniWorkSpace)</h3>
+<ul>
+<li>App — Рабочее место оператора (пульт)</li>
+</ul>
+<h2 id="_2">Взаимодействие компонентов</h2>
+<h3 id="livetex_1">Добавление профиля персоны от клиента LiveTex</h3>
+<p><img alt="VisitorFlow" src="https://www.plantuml.com/plantuml/svg/bLHTQnin47okViMIFDG51mhz8F53uNoDYOr33HVYPqNQNDISfQiakuRI_zwLplQThd5J7np6sfdTcT7Qxbdfcbk-WW9_h54Bl4NdU8bPfKeD0hL7ovWxmDmEDZRRiR4IRMugO-5y4fyNW0jklHAgvjgFkNWkhLbhUGhflwRCrIEz6XFq-_XqqDnQypCjClPWjd2MLugildKGDAAMPt1-bUKV9vViJTrgWIK-56Wt50bXW9XzEW6okZx2lhcxdQSdiwBNQAusU8TRM2fPeWzzhgw_vddAoXRJ8xHM_VM7pvyk--e3CJbPe7L61qjAOAyqwMZZbQUeWt6d90BttZgmL4QhTCcW3GOklaIV8yWYw1Tk_LGE6yeGdhXx-atuMT427vMM4JoGPZM4x-vRxTyHXWklDjnZanl43xWWsgnufRl4b8kLGn3xEsgCn1JtGWxoHq2nDwaqakA0H4sx0udj4tKbcyHO8uCaZO1BELVEeqOx44Pl2a-tWgI1KHbsOqA1L7AlwFeQ0Ejq3zuwBTUrfDEEeKHPstdv5xgAu9SuhPCmRBdhG5ip0kLokvhIFqTfey05LtB0XQ1VVWppG0qxHcyChvbT4xHh920ElRlB6gRSyqh96r8pw4bArphvrfcr2VHaM48xClRVwPmkmhokON-DVMoe_W40" /></p>
+<h3 id="livetex_2">Получение информации о профиле персоны из внешней системы оператором LiveTex</h3>
+<p><img alt="EmployeeFlow" src="https://www.plantuml.com/plantuml/svg/bP9FQy904CNFtKynwAKz28MYM0-22GO4fQ4fz51w63VJiAYxwUp62gNVlHlJQbQaVnOsa9tVlFTs4hjIkaJ63MJqMf6Mj21hiQ39MXKQ96b7B8GzOFOBYymkCfmJnsPj6Bh9Vfq1KsIdf2fHkmZbgc1JwVm_JNzocQiNlpK5zFL-jMXaDczXKOYbsK5dhhRqG3kuUymwqEqFuYYv5HVbCGPCobAGpi7Z9ptrjNp5zqrl1ltXCEoRJj9PU98IMwCpugsIT59AigE9TuJUU2ymWe9SGkWg9YjGEhL5Hurs_O2U1pq_Wcy8dkBxnRF8AOHFDPiibsitow_EwexhJ2DGDkRDpFyC1QDJHgUeyakKqd_CiBM-WT_xG8rBwT5sZfeuQBT7yKEWS6J1MykfEOTtT8xLid9aFmBZG2GSso-jDVm9" /></p>
+<h2 id="livetex_3">Получение профиля персоны на стороне клиента LiveTex</h2>
 <p>Возможны следующие сценарии получения профиля персоны со стороны клиента LiveTex:</p>
 <ol>
 <li>Атрибуты персоны формируются на серверной стороне клиента LiveTex и отдаются в HTML/JS.</li>
 <li>Веб приложение клиента (JS) запрашивает профиль персоны у своего API.</li>
 </ol>
-<h2 id="livetex_1">Добавление профиля персоны в LiveTex</h2>
-<p>Для передачи атрибутов персоны в LiveTex необходимо:</p>
+<h2 id="livetex_4">Добавление профиля персоны в LiveTex</h2>
 <ol>
 <li>Подписаться на событие Widget <code>CONVERSATION_STARTED</code>.</li>
 <li>Вызвать метод <code>setAttributes</code> в обработчике <code>onConversationStarted</code>.</li>
 </ol>
-<pre><code>function onConversationStarted(_) {
-  const personId = '550e8400-e29b-41d4-a716-446655440000'
-  const attributes = [
-    {name: 'Имя', value: 'Arnold Shawrskopff'},
-    {name: 'Телефон', value: '+7 999 999 99 99'}
-  ]
-  const hash = 'c37ac50bdd35a6e8835f057a04dad50822d126497b769a07ef80efc83b8715a8'
+<pre><code>const onConversationStarted = (ev) =&gt; {
+  const personId = findPersonId(dom) // '550e8400-e29b-41d4-a716-446655440000'
+  const attributes = findAttributes(dom) // [{name: 'phone', value: '+79005001234'}]
+  const hash = findHash(dom) // 'serverside-generated-hash'
 
-  const onSuccess = (_) =&gt; console.info('success')
-  const onFailure = (e) =&gt; console.error(`failure: ${e.message}`)
+  const onSuccess = (_) =&gt; console.log('success')
+  const onFailure = (e) =&gt; console.log(`failure: ${e.message}`)
 
-  LiveTex.setAttributes(personId, attributes, hash, onSuccess, onFailure)
+  LiveTex.addAttributes(personId, attributes, hash, onSuccess, onFailure)
 }
 
 const descriptor = LiveTex.addEventListener(
@@ -99,34 +123,39 @@ const descriptor = LiveTex.addEventListener(
 <ul>
 <li>id персоны в системе клиента</li>
 <li>набор атрибутов вида ключ-значение</li>
-<li>хеш строка посчитанная на сервера клиента</li>
+<li>хеш строка</li>
 </ul>
-<p><img alt="visitor-flow" src="./visitor-flow.png" /></p>
-<h2 id="_1">Хеш строка</h2>
+<h2 id="_3">Хеш строка</h2>
 <p>Атрибуты персоны должны быть подписаны секретным ключём на стороне сервера клиента LiveTex.</p>
-<p>Пример реализации алгоритма на JavaScript:</p>
-<pre><code>const crypto = require('crypto')
-
-/**
- * @param {!Array.&lt;{name: string, value: string}&gt;} attributes
- * @param {!string} secret
- * @returns {string}
- */
-function hash(attributes, secret) {
-  const data = attributes
-    .map(_ =&gt; _.name + _.value)
-    .sort()
-    .join('')
+<p>Пример алгоритма на языке Scala:</p>
+<pre><code>/**
+  * Create hash string for attributes
+  *
+  * 1. sort attributes by keys then sort by values
+  * 2. concat each key+value pair
+  * 3. concat all elements from previous step
+  * 4. concat with *secret*
+  * 5. create sha256 hash
+  *
+  * @param attributes Seq of (key, val) tuples
+  * @param secret Secret string for account
+  * @return
+  */
+def createHash(attributes: Seq[(String, String)], secret: String): String = {
+  val attributeValuesWithSecret = attributes
+    .map(x =&gt; x._1 + x._2)
+    .sorted
+    .mkString
     .concat(secret)
 
-  return crypto.createHash('sha256').update(data).digest('hex')
+  sha256Hash(attributeValuesWithSecret)
 }
 </code></pre>
 
-<p>Атрибуты без подписи или с невалидной подписью не будут приняты подсистемой LiveTex.</p>
-<h2 id="_2">Секретный ключ</h2>
+<p>Атрибуты без подписи или с невалидной подписью не передаются в подсистему LiveTex извне.</p>
+<h2 id="_4">Секретный ключ</h2>
 <p>Секретный ключ (<a href="https://ru.wikipedia.org/wiki/UUID">UUID</a> строка) для подписи атрибутов можно получить в личном кабинете клиента LiveTex.</p>
-<h2 id="livetex_2">Получение информации о персоне оператором LiveTex</h2>
+<h2 id="livetex_5">Получение информации о персоне оператором LiveTex</h2>
 <p><img alt="ows-crm-attributes" src="./ows-crm-attributes.png" /></p></div>
         </div>
 
@@ -166,5 +195,5 @@ function hash(attributes, secret) {
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-09-25 14:02:29
+Build Date UTC : 2017-10-11 12:00:47
 -->
