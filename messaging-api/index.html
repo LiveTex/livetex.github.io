@@ -88,10 +88,6 @@
 <li >
     <a href="types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -149,57 +145,52 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#api-livetex">API предоставляемое LiveTex для интеграции с внешними каналами и ботами</a></li>
-        <li class="main "><a href="#_1">Базовые понятия</a></li>
-        <li class="main "><a href="#_2">Взаимодействующие компоненты</a></li>
-        <li class="main "><a href="#_3">Сценарии взаимодействия</a></li>
-            <li><a href="#_4">Первое обращение собеседника в систему</a></li>
-            <li><a href="#_5">Закрытие обращения оператором</a></li>
-        <li class="main "><a href="#_6">Авторизация</a></li>
-        <li class="main "><a href="#_7">Сложные типы данных</a></li>
-        <li class="main "><a href="#messaging-api">Методы Messaging API</a></li>
-        <li class="main "><a href="#webhook-api">Методы Webhook API</a></li>
-        <li class="main "><a href="#webhook-api_1">Оповещения Webhook API</a></li>
-        <li class="main "><a href="#http">Статусы HTTP ответов</a></li>
-        <li class="main "><a href="#_8">Возможные ошибки</a></li>
+        <li class="main active"><a href="#messaging-api">Messaging API</a></li>
+            <li><a href="#_1">Введение</a></li>
+            <li><a href="#_2">Базовые понятия</a></li>
+            <li><a href="#_3">Взаимодействующие компоненты</a></li>
+            <li><a href="#_4">Сценарии взаимодействия</a></li>
+            <li><a href="#_8">Авторизация</a></li>
+            <li><a href="#_9">Сложные типы данных</a></li>
+            <li><a href="#messaging-api_1">Методы Messaging API</a></li>
+            <li><a href="#hello-world">Hello World!</a></li>
+            <li><a href="#webhook">Методы для работы с Webhook</a></li>
+            <li><a href="#webhook_1">Оповещения посредством Webhook</a></li>
+            <li><a href="#http">Статусы HTTP ответов</a></li>
+            <li><a href="#_10">Возможные ошибки</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="api-livetex"><strong>API предоставляемое LiveTex для интеграции с внешними каналами и ботами</strong></h2>
+<h1 id="messaging-api"><strong>Messaging API</strong></h1>
+<p>Текущая версия - 1.0</p>
+<h2 id="_1">Введение</h2>
+<p>API, которое мы с вами рассмотрим далее, служит для обмена сообщениями и файлами с сотрудниками, работающими в приложении Livetex. Ваш сервер может отправлять сотруднику в приложение оператора данные из любого источника и направлять в ответ данные полученные от сотрудника, то есть методы позволяют:
+-   Отправить сообщение или ссылку на файл сотруднику;
+-   Выбрать, какой именно группе сотрудников будут отправляться сообщения;
+-   Передать сотруднику дополнительную информацию о пользователе;
+-   Подписаться на уведомления (webhook), посредством которых Messaging API информирует о сообщениях для пользователя, о доставке сообщений пользователя, о необходимости выбрать направление для сообщений, о закрытии обращения сотрудником.</p>
+<p>Если представить реализацию в виде диаграммы последовательности, то самая простая интеграция будет выглядеть следующим образом:
+<a href="https://static.livetex.ru/990ae4fb4e6c2c458550568dde78f61a.png"><img alt="" src="https://static.livetex.ru/6626780ff8b0bf13ee06664e33983e1f.png" /></a></p>
+<h2 id="_2"><strong>Базовые понятия</strong></h2>
 <ul>
 <li>
-<p>Версия: 1.0.x Используется семантическое версионирование <a href="http://semver.org/">SemVer</a>.</p>
+<p><strong>Собеседник (User/Пользователь)</strong> - обращается в чат для получения консультации или поддержки. Собеседник указывается в запросах посредством user_id. Идентификатор контролируется на стороне разработчика, который использует Messaging API. LiveTex не устанавливает идентификаторы пользователей автоматически. По одинаковым идентификаторам LiveTex группирует обращения пользователя. То есть, если в разные моменты времени состоялось несколько обращений от пользователя, для которого в эти разные моменты времени был установлен один и тот же user_id, то сотрудник в приложении, при получении очередного обращения от того же user_id, увидит все предыдущие обращения.</p>
 </li>
 <li>
-<p>Используемый транспорт: HTTPS с TLS шифрованием.</p>
-</li>
-<li>
-<p>Протокол сериализации данных: JSON</p>
-</li>
-<li>
-<p>Доменное имя сервиса: <a href="http://messaging.livetex.ru/1.0/">https://messaging.livetex.ru/1.0/</a> в случае Livetex облака. При развертывании будет отличаться.</p>
-</li>
-<li>
-<p>Адрес для получения оповещений по Websocket: <a href="http://messaging.livetex.ru/1.0/ws">https://messaging.livetex.ru/1.0/ws</a></p>
-</li>
-</ul>
-<h2 id="_1"><strong>Базовые понятия</strong></h2>
-<ul>
-<li>
-<p><strong>Собеседник (<strong><em>*User</em></strong>*)</strong> - обращается в чат для получения поддержки.</p>
-</li>
-<li>
-<p><strong>Оператор (Employee)</strong> - сотрудник организации, обрабатывающий входящие обращения собеседника.</p>
+<p><strong>Сотрудник (Employee)</strong> - сотрудник организации, обрабатывающий входящие обращения собеседника в приложении LiveTex.</p>
 </li>
 <li>
 <p><strong>Бот (Bot)</strong> - автоматизированная система обработки обращений собеседника.</p>
 </li>
 <li>
-<p><strong>Направление маршрутизации (Destination)</strong> - направление, в котором отправляются полученные от собеседника сообщения.</p>
+<p><strong>Направление маршрутизации (Destination)</strong> - под направлением, в котором отправляются полученные от собеседника сообщения, подразумеваются группы сотрудников созданные в рамках точки контакта, ключ для которой используется для работы с API. У каждой точки контакта обязательно есть минимум одна группа сотрудников.</p>
+</li>
+<li>
+<p><strong>Уведомления (Webhook-и)</strong> - посылаемые на указанный разработчиком адрес сообщения, которые содержат информацию о новых сообщениях и событиях.</p>
 </li>
 </ul>
-<h2 id="_2"><strong>Взаимодействующие компоненты</strong></h2>
+<h2 id="_3"><strong>Взаимодействующие компоненты</strong></h2>
 <ul>
 <li>
 <p><strong>LiveTex</strong> - система омниканального обслуживания.</p>
@@ -209,47 +200,121 @@
 </li>
 </ul>
 <p>Система <em>LiveTex</em> получает от <em>Touchpoint Gateway</em> текстовые и другие медиа-сообщения, отправленные пользователем. Система <em>LiveTex</em> способна отправлять пользователю текстовые и другие медиа-сообщения. Система <em>LiveTex</em> может запросить у пользователя дополнительную информацию для маршрутизации обращения. Все сообщения от операторов и собеседников сохраняются в истории с системе <em>Livetex</em> для предоставления оператору максимально полного контекста обращения.</p>
-<h2 id="_3"><strong>Сценарии взаимодействия</strong></h2>
-<h3 id="_4"><strong>Первое обращение собеседника в систему</strong></h3>
-<ol>
-<li><em>Touchpoint Gateway</em> оповещает систему <em>LiveTex</em> о новом сообщении от <em>собеседника</em> вызовом методов sendText либо sendFile.</li>
-</ol>
-<h3 id="_5"><strong>Закрытие обращения оператором</strong></h3>
-<ol>
-<li>
-<p>Сообщения оператора TextMessage или FileMessage передаются <em>Touchpoint Gateway</em> для отображения собеседнику.</p>
-</li>
-<li>
-<p>Сообщение о закрытии обращения Closed передается <em>Touchpoint Gateway</em> для отображения собеседнику и в <em>Bot Component</em> для обучения.</p>
-</li>
-</ol>
-<h2 id="_6"><strong>Авторизация</strong></h2>
-<p>Авторизация осуществляется передачей ключа авторизации в параметре запроса:</p>
-<pre><code class="bash">curl -XPOST http://messaging.livetex.ru/&lt;version&gt;/&lt;method&gt;?key=&lt;authentication_key&gt;
+<p><strong>Используемый транспорт:</strong> HTTPS с TLS шифрованием (http не поддерживается). </p>
+<p><strong>Протокол сериализации данных:</strong> JSON </p>
+<p><strong>Доменное имя сервиса:</strong> https://messaging.livetex.ru/1.0/ (пока доступна только версия 1.0, но планируется, что для использования будут доступны и другие версии) </p>
+<h2 id="_4"><strong>Сценарии взаимодействия</strong></h2>
+<h3 id="_5"><strong>Пользователь обращается к сотруднику</strong></h3>
+<p><em>Touchpoint Gateway</em> оповещает систему <em>LiveTex</em> о новом сообщении от собеседника вызовом методов sendText либо sendFile. Если до вызова метода отправки сообщения или файла не было явно выбрано направление или предыдущее обращение от пользователя было уже закрыто сотрудником, то <em>LiveTex</em> передаст в сторону <em>Touchpoint Gateway</em> оповещение SelectDestination, предлагая выбрать направление, куда будет отправлено сообщение. Все отправленные до выбора направления сообщения сохраняются и будут отправлены после выбора направления.</p>
+<h3 id="_6"><strong>Сотрудник отправил ответ пользователю</strong></h3>
+<p>Система <em>LiveTex</em> оповещает <em>Touchpoint Gateway</em> о новом текстовом сообщении (TextMessage) или файле (FileMessage) от сотрудника. Если url для вебхуков не был задан к моменту ответа оператора, все сообщения от оператора будут сохранены и отправлены после вызова метода setWebhook, но не позднее чем через сутки после отправки сообщения оператором.</p>
+<h3 id="_7"><strong>Закрытие обращения оператором</strong></h3>
+<p>Сотрудник в приложении LiveTex Workspace закрывает вкладку с обращением. Система <em>LiveTex</em> посылает событие Closed, оповещая тем самым <em>Touchpoint Gateway</em> о закрытии обращения сотрудником. После этого событие направление маршрутизации считается не выбранным.</p>
+<h2 id="_8"><strong>Авторизация</strong></h2>
+<p>Авторизация осуществляется посредством передачи ключа авторизации в параметре каждого запроса:</p>
+<pre><code class="bash">curl -X POST https://messaging.livetex.ru/&lt;version&gt;/&lt;method&gt;?key=&lt;authentication_key&gt;
 </code></pre>
 
-<h2 id="_7"><strong>Сложные типы данных</strong></h2>
+<p>То есть отдельно перед выполнением всех запросов проходить авторизацию не требуется. 
+На данный момент вместо \<version> необходимо указать 1.0
+Ключ для авторизации <authentication_key> можно получить в личном кабинете https://my.livetex.ru в разделе Настройки - Точки контакта. Нажмите на кнопку “Ключ доступа” напротив вашей точки контакта типа “Messaging API” и вы увидите и сможете скопировать ключ для авторизации, как на этих снимках:</p>
+<p><img alt="oioo" src="https://static.livetex.ru/216b881512c46caa49e86b29b9d299f1.png" />
+<img alt="" src="https://static.livetex.ru/b4d67fafae86532135e1fe554ea68bd4.png" /></p>
+<h2 id="_9"><strong>Сложные типы данных</strong></h2>
 <ul>
 <li><a href="types/destination/">Destination</a></li>
 <li><a href="types/employee/">Employee</a></li>
-<li><a href="types/message/">Message</a></li>
 </ul>
-<h2 id="messaging-api"><strong>Методы Messaging API</strong></h2>
-<ul>
+<h2 id="messaging-api_1"><strong>Методы Messaging API</strong></h2>
+<p><strong>Все запросы выполняются только по HTTPS.</strong><br />
+Все запросы, подразумевающие наличие JSON в теле запроса, должны содержать следующие заголовки: 
+- Content-Type: "application/json" 
+- Content-Length: &lt;количество байт в теле запроса&gt;</p>
+<ol>
 <li><a href="api/sendText/">sendText</a></li>
 <li><a href="api/sendFile/">sendFile</a></li>
 <li><a href="api/selectDestination/">selectDestination</a></li>
 <li><a href="api/getDestinations/">getDestinations</a></li>
-</ul>
-<p>Все HTTP запросы, подразумевающие наличие JSON в теле запрос, должны содержать следующие http-заголовки:
-- Content-Type: "application/json"
-- Content-Length: &lt;количество байт в теле запроса&gt;</p>
-<h2 id="webhook-api"><strong>Методы Webhook API</strong></h2>
+</ol>
+<h2 id="hello-world"><strong>Hello World!</strong></h2>
+<p>Тут сжато и сухо рассмотрим, что нужно, чтобы отправить сообщение и сотрудник, находясь в приложении, его получил.</p>
+<p>1.Получаем возможные направления, куда можно отправить сообщение.<br />
+Запрос:</p>
+<pre><code class="bash">curl -X POST https://messaging.livetex.ru/&lt;version&gt;/getDestinations?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Ответ:</p>
+<pre><code class="json">{
+  &quot;destinations&quot; : [{
+    &quot;destination_type&quot; : &quot;Department&quot;,
+     &quot;destination_id&quot; : &quot;54321&quot;,
+     &quot;name&quot; : &quot;Группа для Messaging API&quot;,
+     &quot;has_online&quot; : true
+  }],
+  &quot;success&quot; : true
+}
+</code></pre>
+
+<p>2.Выбираем подходящее направление и указываем информацию о клиенте.<br />
+Запрос:</p>
+<pre><code class="bash">curl -X POST -d '{
+    &quot;user_id&quot;: &quot;123-321-123-321&quot;,
+    &quot;destination_type&quot; : &quot;Department&quot;,
+    &quot;destination_id&quot; : &quot;54321&quot;,
+    &quot;name&quot; : &quot;Иванов Василий Петрович&quot;,
+    &quot;attributes&quot; : {&quot;Номер заказа&quot; : &quot;№98765&quot;}
+}' \ https://messaging.livetex.ru/&lt;version&gt;/selectDestination?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Ответ:</p>
+<pre><code class="json">{
+    &quot;success&quot; : true
+}
+</code></pre>
+
+<p>3.Отправляем сообщение.
+Запрос:</p>
+<pre><code class="bash">curl -X POST -d '{
+    &quot;user_id&quot;: &quot;123-321-123-321&quot;,
+    &quot;text&quot;: &quot;Hello World!&quot;
+}' \ https://messaging.livetex.ru/&lt;version&gt;/selectDestination?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Ответ:</p>
+<pre><code class="json">{
+    &quot;message_id&quot; : &quot;1f00f857-6afe4-4618-c208-92ad57401abe&quot;,
+    &quot;timestamp&quot; : 1502783446318,
+    &quot;success&quot; : true
+}
+</code></pre>
+
+<p>4.Отправим вдогонку файл.
+Запрос:</p>
+<pre><code class="bash">curl -X POST -d '{
+        &quot;user_id&quot;: &quot;123-321-123-321&quot;,
+        &quot;url&quot;: &quot;https://livetex.ru/wp-content/themes/livetex/ltx/img/Logo_LiveTex.png&quot;,
+        &quot;file_name&quot;: &quot;LiveTex.png&quot;,
+        &quot;size&quot;: 5,
+        &quot;comment&quot;: &quot;Вот, посмотрите, какой файл я приложил!&quot;
+}' \ https://messaging.livetex.ru/&lt;version&gt;/selectDestination?key=&lt;authentication_key&gt;
+</code></pre>
+
+<p>Ответ:</p>
+<pre><code class="json">{
+    &quot;message_id&quot; : &quot;ed31802b-7c7a-4948-abf5-ff2a34ec7b07&quot;,
+    &quot;timestamp&quot; : 1502783544207,
+    &quot;success&quot; : true
+}
+</code></pre>
+
+<p>Готово, сотрудник получил сообщение и файл. Если на момент выполнения запросов сотрудник не был авторизован в приложении оператора, то он получит сообщение и файл после авторизации.</p>
+<p>Чтобы получить ответ от Сотрудника необходимо слушать уведомления от сервера. Уведомления доставляются посредством <strong>Webhooks</strong>, подключение которых мы рассмотрим далее.</p>
+<h2 id="webhook"><strong>Методы для работы с Webhook</strong></h2>
 <ul>
 <li><a href="api/setWebhook/">setWebhook</a></li>
 <li><a href="api/getWebhookSettings/">getWebhookSettings</a></li>
 </ul>
-<h2 id="webhook-api_1"><strong>Оповещения Webhook API</strong></h2>
+<h2 id="webhook_1"><strong>Оповещения посредством Webhook</strong></h2>
 <ul>
 <li><a href="webhooks/MessageDelivered/">MessageDelivered</a></li>
 <li><a href="webhooks/TextMessage/">TextMessage</a></li>
@@ -259,8 +324,8 @@
 <li><a href="webhooks/Closed/">Closed</a></li>
 </ul>
 <h2 id="http"><strong>Статусы HTTP ответов</strong></h2>
-<p>В случае успешной обработки LiveTex возвращает ответ с кодом 200. Прочие поддерживаемые статусы: 400, 401, 404, 500</p>
-<h2 id="_8"><strong>Возможные ошибки</strong></h2>
+<p>В случае успешной обработки LiveTex возвращает ответ с кодом 200. Прочие поддерживаемые статусы: 400, 401, 403, 404, 500</p>
+<h2 id="_10"><strong>Возможные ошибки</strong></h2>
 <table>
   <tr>
     <td><b>Статус</b></td>
@@ -278,7 +343,7 @@
     <td>401</td>
     <td>2</td>
     <td>Authentication key is not valid</td>
-    <td>Указанный в запросе touch_point_key не зарегистрирован в LiveTex</td>
+    <td>Указанный в запросе authentication_key не зарегистрирован в LiveTex</td>
   </tr>
   <tr>
     <td>400</td>
@@ -309,7 +374,19 @@
     <td>7</td>
     <td>Internal server error</td>
     <td>Произошло непредвиденное исключение на стороне LiveTex</td>
-    </tr>
+  </tr>
+  <tr>
+      <td>403</td>
+      <td>8</td>
+      <td>Forbidden method for your account</td>
+      <td>Метод недоступен для используемой версии продуктов</td>
+  </tr>
+  <tr>
+      <td>400</td>
+      <td>9</td>
+      <td>Invalid data: $reason</td>
+      <td>Переданные данные не валидны</td>
+  </tr>
 </table></div>
         </div>
 
@@ -349,5 +426,5 @@
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-10-04 15:37:46
+Build Date UTC : 2018-01-22 08:04:06
 -->
