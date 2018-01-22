@@ -88,10 +88,6 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="../../types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -157,11 +153,11 @@
                 <div class="col-md-9" role="main">
 
 <h3 id="getdestinations">getDestinations</h3>
+<p>Получение доступных направлений для маршрутизации</p>
 <h4 id="_1">Пример</h4>
-<pre><code class="bash">curl -XPOST http://messaging.livetex.ru/&lt;version&gt;/getDestinations?key=&lt;authentication_key&gt;
+<pre><code class="bash">curl -X POST https://messaging.livetex.ru/&lt;version&gt;/getDestinations?key=&lt;authentication_key&gt;
 </code></pre>
 
-<p>Получение доступных направлений для маршрутизации</p>
 <h4 id="_2">Формат ответа</h4>
 <table>
   <tr>

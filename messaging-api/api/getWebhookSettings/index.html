@@ -88,10 +88,6 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="../../types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -157,11 +153,11 @@
                 <div class="col-md-9" role="main">
 
 <h3 id="getwebhooksettings"><strong>getWebhookSettings</strong></h3>
+<p>Получить текущие настройки для webhook.</p>
 <h4 id="_1">Пример</h4>
-<pre><code class="bash">curl -XPOST http://messaging.livetex.ru/&lt;version&gt;/getWebhookSettings?key=&lt;authentication_key&gt;
+<pre><code class="bash">curl -X POST https://messaging.livetex.ru/&lt;version&gt;/getWebhookSettings?key=&lt;authentication_key&gt;
 </code></pre>
 
-<p>Получить текущие настройки для webhook.</p>
 <h4 id="_2">Формат ответа</h4>
 <table>
   <tr>
@@ -180,7 +176,7 @@
       <td>url</td>
       <td>String</td>
       <td>Да</td>
-      <td>URL, по которому посылаются WebHooks оповещения. URL будет пустой, если WebHook не выставлен</td>
+      <td>URL, по которому посылаются WebHooks оповещения. URL будет пустой, если WebHook не настроен</td>
     </tr>
   <tr>
     <td>error_message</td>

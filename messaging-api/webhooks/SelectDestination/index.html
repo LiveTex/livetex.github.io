@@ -88,10 +88,6 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="../../types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown active">
@@ -179,18 +175,18 @@
   <tr>
     <td>webhook_key</td>
     <td>String</td>
-    <td>Да</td>
-    <td>Аутентификационный ключ внешнего канала</td>
+    <td>Нет</td>
+    <td>Аутентификационный ключ внешнего канала, отдается только в webhook. В истории отдаваться не будет</td>
   </tr>
   <tr>
     <td>user_id</td>
     <td>String</td>
     <td>Да</td>
-    <td>Идентификатор собеседника в точке контакта. Задается на стороне клиента</td>
+    <td>Идентификатор собеседника в точке контакта. Задается и контролируется на стороне разработчика, который использует Messaging API. LiveTex не устанавливает идентификаторы пользователей автоматически.</td>
   </tr>
   <tr>
     <td>destinations</td>
-    <td>Array.<Destination></td>
+    <td>List<Destination></td>
     <td>Да</td>
     <td>Список доступных направлений маршрутизации</td>
   </tr>

@@ -88,10 +88,6 @@
 <li >
     <a href="../../types/employee/">Employee</a>
 </li>
-                            
-<li >
-    <a href="../../types/message/">Message</a>
-</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -158,9 +154,9 @@
                 <div class="col-md-9" role="main">
 
 <h3 id="sendtext"><strong>sendText</strong></h3>
+<p>Отправка текста в обращение от лица собеседника/пользователя. При получении сообщения оператором, создается оповещение MessageDelivered, которое через webhook-и отправляется клиенту</p>
 <h4 id="_1">Пример</h4>
-<pre><code class="bash">curl -XPOST -d'{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;text&quot;: &quot;Hello World!&quot;}' \
-  http://messaging.livetex.ru/&lt;version&gt;/sendText?key=&lt;authentication_key&gt;
+<pre><code class="bash">curl -X POST -d '{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;text&quot;: &quot;Hello World!&quot;}' \ https://messaging.livetex.ru/&lt;version&gt;/sendText?key=&lt;authentication_key&gt;
 </code></pre>
 
 <p>Отправка текста в обращение от лица <em>собеседника</em>. В случае успешного запроса создается оповещение UserText, доступное собеседнику и операторам, обслуживающим обращение.</p>
@@ -176,13 +172,13 @@
     <td>user_id</td>
     <td>String</td>
     <td>Да</td>
-    <td>Идентификатор собеседника в точке контакта. Задается на стороне клиента</td>
+    <td>Идентификатор собеседника в точке контакта. Задается и контролируется на стороне разработчика, который использует Messaging API. LiveTex не устанавливает идентификаторы пользователей автоматически.</td>
   </tr>
   <tr>
     <td>text</td>
     <td>String</td>
     <td>Да</td>
-    <td>Текстовое сообщение, отправленное собеседником</td>
+    <td>Текстовое сообщение, отправленное собеседником/пользователем.</td>
   </tr>
 </table>
 
