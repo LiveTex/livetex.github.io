@@ -53,7 +53,15 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="api/getCurrentDestination/">getCurrentDestination</a>
+</li>
+                            
+<li >
     <a href="api/getDestinations/">getDestinations</a>
+</li>
+                            
+<li >
+    <a href="api/getHistory/">getHistory</a>
 </li>
                             
 <li >
@@ -82,40 +90,43 @@
                         <ul class="dropdown-menu">
                             
 <li >
+    <a href="types/Closed/">Closed</a>
+</li>
+                            
+<li >
+    <a href="types/DestinationSelected/">DestinationSelected</a>
+</li>
+                            
+<li >
+    <a href="types/EmployeeAvailabilityChanged/">EmployeeAvailabilityChanged</a>
+</li>
+                            
+<li >
+    <a href="types/FileMessage/">FileMessage</a>
+</li>
+                            
+<li >
+    <a href="types/HoldMessage/">HoldMessage</a>
+</li>
+                            
+<li >
+    <a href="types/MessageDelivered/">MessageDelivered</a>
+</li>
+                            
+<li >
+    <a href="types/SelectDestination/">SelectDestination</a>
+</li>
+                            
+<li >
+    <a href="types/TextMessage/">TextMessage</a>
+</li>
+                            
+<li >
     <a href="types/destination/">Destination</a>
 </li>
                             
 <li >
     <a href="types/employee/">Employee</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhooks <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="webhooks/Closed/">Closed</a>
-</li>
-                            
-<li >
-    <a href="webhooks/FileMessage/">FileMessage</a>
-</li>
-                            
-<li >
-    <a href="webhooks/HoldMessage/">HoldMessage</a>
-</li>
-                            
-<li >
-    <a href="webhooks/MessageDelivered/">MessageDelivered</a>
-</li>
-                            
-<li >
-    <a href="webhooks/SelectDestination/">SelectDestination</a>
-</li>
-                            
-<li >
-    <a href="webhooks/TextMessage/">TextMessage</a>
 </li>
                         </ul>
                     </li>
@@ -133,7 +144,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="api/getDestinations/">
+                        <a rel="prev" href="api/getCurrentDestination/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -163,13 +174,13 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="messaging-api"><strong>Messaging API</strong></h1>
-<p>Текущая версия - 1.0</p>
+<p>Версия 1.1. Предумотрена для использования только клиентами платформы Омни 1.1</p>
 <h2 id="_1">Введение</h2>
 <p>API, которое мы с вами рассмотрим далее, служит для обмена сообщениями и файлами с сотрудниками, работающими в приложении Livetex. Ваш сервер может отправлять сотруднику в приложение оператора данные из любого источника и направлять в ответ данные полученные от сотрудника, то есть методы позволяют:
-<em>   Отправить сообщение или ссылку на файл сотруднику;
-</em>   Выбрать, какой именно группе сотрудников будут отправляться сообщения;
-<em>   Передать сотруднику дополнительную информацию о пользователе;
-</em>   Подписаться на уведомления (webhook), посредством которых Messaging API информирует о сообщениях для пользователя, о доставке сообщений пользователя, о необходимости выбрать направление для сообщений, о закрытии обращения сотрудником.</p>
+-   Отправить сообщение или ссылку на файл сотруднику;
+-   Выбрать, какой именно группе сотрудников будут отправляться сообщения;
+-   Передать сотруднику дополнительную информацию о пользователе;
+-   Подписаться на уведомления (webhook), посредством которых Messaging API информирует о сообщениях для пользователя, о доставке сообщений пользователя, о необходимости выбрать направление для сообщений, о закрытии обращения сотрудником.</p>
 <p>Если представить реализацию в виде диаграммы последовательности, то самая простая интеграция будет выглядеть следующим образом:
 <a href="https://static.livetex.ru/990ae4fb4e6c2c458550568dde78f61a.png"><img alt="" src="https://static.livetex.ru/6626780ff8b0bf13ee06664e33983e1f.png" /></a></p>
 <h2 id="_2"><strong>Базовые понятия</strong></h2>
@@ -200,9 +211,9 @@
 </li>
 </ul>
 <p>Система <em>LiveTex</em> получает от <em>Touchpoint Gateway</em> текстовые и другие медиа-сообщения, отправленные пользователем. Система <em>LiveTex</em> способна отправлять пользователю текстовые и другие медиа-сообщения. Система <em>LiveTex</em> может запросить у пользователя дополнительную информацию для маршрутизации обращения. Все сообщения от операторов и собеседников сохраняются в истории с системе <em>Livetex</em> для предоставления оператору максимально полного контекста обращения.</p>
-<p><strong>Используемый транспорт:</strong> HTTPS с TLS шифрованием (http не поддерживается). </p>
-<p><strong>Протокол сериализации данных:</strong> JSON </p>
-<p><strong>Доменное имя сервиса:</strong> https://messaging.livetex.ru/1.0/ (пока доступна только версия 1.0, но планируется, что для использования будут доступны и другие версии) </p>
+<p><strong>Используемый транспорт:</strong> HTTPS с TLS шифрованием (http не поддерживается).
+<strong>Протокол сериализации данных:</strong> JSON
+<strong>Доменное имя сервиса:</strong> https://messaging.livetex.ru/1.1/ (пока доступна только версия 1.1, но планируется, что для использования будут доступны и другие версии)</p>
 <h2 id="_4"><strong>Сценарии взаимодействия</strong></h2>
 <h3 id="_5"><strong>Пользователь обращается к сотруднику</strong></h3>
 <p><em>Touchpoint Gateway</em> оповещает систему <em>LiveTex</em> о новом сообщении от собеседника вызовом методов sendText либо sendFile. Если до вызова метода отправки сообщения или файла не было явно выбрано направление или предыдущее обращение от пользователя было уже закрыто сотрудником, то <em>LiveTex</em> передаст в сторону <em>Touchpoint Gateway</em> оповещение SelectDestination, предлагая выбрать направление, куда будет отправлено сообщение. Все отправленные до выбора направления сообщения сохраняются и будут отправлены после выбора направления.</p>
@@ -216,9 +227,9 @@
 </code></pre>
 
 <p>То есть отдельно перед выполнением всех запросов проходить авторизацию не требуется. 
-На данный момент вместо \<version> необходимо указать 1.0
+На данный момент вместо <version> необходимо указать 1.1
 Ключ для авторизации <authentication_key> можно получить в личном кабинете https://my.livetex.ru в разделе Настройки - Точки контакта. Нажмите на кнопку “Ключ доступа” напротив вашей точки контакта типа “Messaging API” и вы увидите и сможете скопировать ключ для авторизации, как на этих снимках:</p>
-<p><img alt="oioo" src="https://static.livetex.ru/216b881512c46caa49e86b29b9d299f1.png" />
+<p><img alt="" src="https://static.livetex.ru/216b881512c46caa49e86b29b9d299f1.png" />
 <img alt="" src="https://static.livetex.ru/b4d67fafae86532135e1fe554ea68bd4.png" /></p>
 <h2 id="_9"><strong>Сложные типы данных</strong></h2>
 <ul>
@@ -235,12 +246,14 @@
 <li><a href="api/sendFile/">sendFile</a></li>
 <li><a href="api/selectDestination/">selectDestination</a></li>
 <li><a href="api/getDestinations/">getDestinations</a></li>
+<li><a href="api/getHistory/">getHistory</a></li>
+<li><a href="api/getCurrentDestination/">getCurrentDestination</a></li>
 </ol>
 <h2 id="hello-world"><strong>Hello World!</strong></h2>
 <p>Тут сжато и сухо рассмотрим, что нужно, чтобы отправить сообщение и сотрудник, находясь в приложении, его получил.</p>
 <p>1.Получаем возможные направления, куда можно отправить сообщение.<br />
 Запрос:</p>
-<pre><code class="bash">curl -X POST https://messaging.livetex.ru/&lt;version&gt;/getDestinations?key=&lt;authentication_key&gt;
+<pre><code class="bash">curl -X POST https://messaging.livetex.ru/1.1/getDestinations?key=&lt;authentication_key&gt;
 </code></pre>
 
 <p>Ответ:</p>
@@ -316,12 +329,12 @@
 </ul>
 <h2 id="webhook_1"><strong>Оповещения посредством Webhook</strong></h2>
 <ul>
-<li><a href="webhooks/MessageDelivered/">MessageDelivered</a></li>
-<li><a href="webhooks/TextMessage/">TextMessage</a></li>
-<li><a href="webhooks/FileMessage/">FileMessage</a></li>
-<li><a href="webhooks/SelectDestination/">SelectDestination</a></li>
-<li><a href="webhooks/HoldMessage/">HoldMessage</a></li>
-<li><a href="webhooks/Closed/">Closed</a></li>
+<li><a href="types/MessageDelivered/">MessageDelivered</a></li>
+<li><a href="types/TextMessage/">TextMessage</a></li>
+<li><a href="types/FileMessage/">FileMessage</a></li>
+<li><a href="types/SelectDestination/">SelectDestination</a></li>
+<li><a href="types/HoldMessage/">HoldMessage</a></li>
+<li><a href="types/Closed/">Closed</a></li>
 </ul>
 <h2 id="http"><strong>Статусы HTTP ответов</strong></h2>
 <p>В случае успешной обработки LiveTex возвращает ответ с кодом 200. Прочие поддерживаемые статусы: 400, 401, 403, 404, 500</p>
@@ -426,5 +439,5 @@
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2018-03-27 14:13:07
+Build Date UTC : 2018-03-27 13:46:13
 -->
