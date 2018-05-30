@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,50 +12,50 @@
     
         
     <url>
-     <loc>/api/getCurrentDestination/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/getCurrentDestination/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/getDestinations/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/getDestinations/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/getHistory/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/getHistory/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/getWebhookSettings/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/getWebhookSettings/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/selectDestination/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/selectDestination/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/sendFile/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/sendFile/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/sendText/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/sendText/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/setWebhook/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/api/setWebhook/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -64,62 +64,62 @@
     
         
     <url>
-     <loc>/types/Closed/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/Closed/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/DestinationSelected/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/DestinationSelected/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/EmployeeAvailabilityChanged/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/EmployeeAvailabilityChanged/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/FileMessage/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/FileMessage/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/HoldMessage/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/HoldMessage/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/MessageDelivered/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/MessageDelivered/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/SelectDestination/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/SelectDestination/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/TextMessage/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/TextMessage/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/destination/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/destination/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/types/employee/</loc>
-     <lastmod>2018-03-27</lastmod>
+     <loc>None/types/employee/</loc>
+     <lastmod>2018-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
