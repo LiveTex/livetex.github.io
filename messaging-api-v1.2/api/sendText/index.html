@@ -168,7 +168,7 @@
 <h3 id="sendtext"><strong>sendText</strong></h3>
 <p>Отправка текста в обращение от лица собеседника/пользователя. При получении сообщения оператором, создается оповещение MessageDelivered, которое через webhook-и отправляется клиенту</p>
 <h4 id="_1">Пример</h4>
-<pre><code class="bash">curl -X POST -d '{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;text&quot;: &quot;Hello World!&quot;}' \ https://messaging.livetex.ru/1.1/sendText?key=&lt;authentication_key&gt;
+<pre><code class="bash">curl -X POST -d '{&quot;user_id&quot;: &quot;&lt;user_id&gt;&quot;, &quot;text&quot;: &quot;Hello World!&quot;}' \ https://messaging.livetex.ru/&lt;version&gt;/sendText?key=&lt;authentication_key&gt;
 </code></pre>
 
 <p>Отправка текста в обращение от лица <em>собеседника</em>. В случае успешного запроса создается оповещение UserText, доступное собеседнику и операторам, обслуживающим обращение.</p>
