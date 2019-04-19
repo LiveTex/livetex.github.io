@@ -1,478 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>getDepartments - Livetex Widgets API 3.0</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+  <title>getDepartments - Livetex Widgets API 3.0</title>
 
-        
-    </head>
+  <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../css/base.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/highlight.css">
 
-    <body>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
+</head>
 
-            <!-- Main title -->
-            <a class="navbar-brand" href="../..">Livetex Widgets API 3.0</a>
-        </div>
+<body>
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
 
+    <!-- Collapsed navigation -->
+    <div class="navbar-header">
 
-                            <li >
-                                <a href="../../events/call-established/">Call established</a>
-                            </li>
+      <!-- Expander button -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
 
-
-                            <li >
-                                <a href="../../events/call-started/">Call started</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/conversation-started/">Conversation started</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/employee-message-sent/">Employee message sent</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/invitation-window-close/">Invitation window close</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/invitation-window-shown/">Invitation window shown</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/offline-message-sent/">Offline message sent</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/welcome-window-shown/">Welcome window shown</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../../events/x-window-shown/">X-Window shown</a>
-                            </li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Methods <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../addEventListener/">addEventListener</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">getDepartments</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../getEmployees/">getEmployees</a>
-                            </li>
-
-                        
-                            
-<li >
-    <a href="../hideLabel/">hideLabel</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../hideActiveWindow/">hideActiveWindow</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../hideInvitationWindow/">hideInvitationWindow</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../initiateCall/">initiateCall</a>
-                            </li>
-
-                        
-                            
-<li >
-    <a href="../isDepartmentAvailable/">isDepartmentAvailable</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../isDepartmentOnline/">isDepartmentOnline</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../isInvitationShown/">isInvitationShown</a>
-                            </li>
-
-                        
-                            
-<li >
-    <a href="../showWelcomeWindow/">showWelcomeWindow</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../reinit/">Reinit</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../removeEventListener/">removeEventListener</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../setConversationAttributes/">setConversationAttributes</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../setVisitorAttributes/">setVisitorAttributes</a>
-                            </li>
-
-                        
-                            
-<li >
-    <a href="../setWelcomeDepartments/">setWelcomeDepartments</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../showLabel/">showLabel</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../showConversationWindow/">showConversationWindow</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../showInvitationWindow/">showInvitationWindow</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../showCallRequestDepartments/">showCallRequestDepartments</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../showOfflineDepartments/">showOfflineDepartments</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../showOfflineWindow/">showOfflineWindow</a>
-                            </li>
-
-
-
-                            <li >
-                                <a href="../showXWindow">showXWindow</a>
-                            </li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Typedefs <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-
-
-                            <li >
-                                <a href="../../typedefs/Contact/">Contact</a>
-                            </li>
-
-                            
-<li >
-    <a href="../../typedefs/ConversationAttribute/">ConversationAttribute</a>
-</li>
-
-
-                            <li >
-                                <a href="../../typedefs/Employee">Employee</a>
-                            </li>
-
-
-                            <li >
-                                <a href="../../typedefs/EmployeeFilter">EmployeeFilter</a>
-                            </li>
-
-
-                            <li >
-                                <a href="../../typedefs/Schedule">Schedule</a>
-                            </li>
-
-
-                            <li >
-                                <a href="../../typedefs/VisitorAttributes/">VisitorAttributes</a>
-                            </li>
-
-
-                            <li >
-                                <a href="../../typedefs/VisitorDisplayedName/">VisitorDisplayedName</a>
-                            </li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enums <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-
-
-                            <li >
-                                <a href="../../enums/ContactType/">ContactType</a>
-                            </li>
-                        
-                            
-<li >
-    <a href="../../enums/ConversationAttributeType/">ConversationAttributeType</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../../enums/EmployeeStatus/">EmployeeStatus</a>
-                            </li>
-
-                        
-                            
-<li >
-    <a href="../../enums/Event/">Event</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../enums/SourceType/">SourceType</a>
-</li>
-
-
-
-                            <li >
-                                <a href="../../enums/WidgetType/">WidgetType</a>
-                            </li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
-            
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                
-                    <li >
-                        <a rel="next" href="../addEventListener/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../getEmployees/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-            </ul>
-        </div>
+      <!-- Main title -->
+      <a class="navbar-brand" href="../..">Livetex Widgets API 3.0</a>
     </div>
+
+    <!-- Expanded navigation -->
+    <div class="navbar-collapse collapse">
+
+      <!-- Main navigation -->
+      <ul class="nav navbar-nav">
+
+
+        <li>
+          <a href="../..">Home</a>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+
+
+            <li>
+              <a href="../../events/call-established/">Call established</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/call-started/">Call started</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/conversation-started/">Conversation started</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/employee-message-sent/">Employee message sent</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/invitation-window-close/">Invitation window close</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/invitation-window-shown/">Invitation window shown</a>
+            </li>
+
+
+            <li><a href="../../events/offline-message-sent/">Offline message sent</a></li>
+            <li><a href="../../events/callback-sent/">Callback sent</a></li>
+
+
+            <li>
+              <a href="../../events/welcome-window-shown/">Welcome window shown</a>
+            </li>
+
+
+            <li>
+              <a href="../../events/x-window-shown/">X-Window shown</a>
+            </li>
+
+
+          </ul>
+        </li>
+
+
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Methods <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+
+
+            <li>
+              <a href="../addEventListener/">addEventListener</a>
+            </li>
+
+
+            <li class="active">
+              <a href="./">getDepartments</a>
+            </li>
+
+
+            <li>
+              <a href="../getEmployees/">getEmployees</a>
+            </li>
+
+
+            <li>
+              <a href="../hideLabel/">hideLabel</a>
+            </li>
+
+
+            <li>
+              <a href="../hideActiveWindow/">hideActiveWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../hideInvitationWindow/">hideInvitationWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../initiateCall/">initiateCall</a>
+            </li>
+
+
+            <li>
+              <a href="../isDepartmentAvailable/">isDepartmentAvailable</a>
+            </li>
+
+
+            <li>
+              <a href="../isDepartmentOnline/">isDepartmentOnline</a>
+            </li>
+
+
+            <li>
+              <a href="../isInvitationShown/">isInvitationShown</a>
+            </li>
+
+
+            <li>
+              <a href="../showWelcomeWindow/">showWelcomeWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../reinit/">Reinit</a>
+            </li>
+
+
+            <li>
+              <a href="../removeEventListener/">removeEventListener</a>
+            </li>
+
+
+            <li>
+              <a href="../setConversationAttributes/">setConversationAttributes</a>
+            </li>
+
+
+            <li>
+              <a href="../setVisitorAttributes/">setVisitorAttributes</a>
+            </li>
+
+
+            <li>
+              <a href="../setWelcomeDepartments/">setWelcomeDepartments</a>
+            </li>
+
+
+            <li>
+              <a href="../showLabel/">showLabel</a>
+            </li>
+
+
+            <li>
+              <a href="../showConversationWindow/">showConversationWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../showInvitationWindow/">showInvitationWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../showCallRequestDepartments/">showCallRequestDepartments</a>
+            </li>
+
+
+            <li>
+              <a href="../showOfflineDepartments/">showOfflineDepartments</a>
+            </li>
+
+
+            <li>
+              <a href="../showOfflineWindow/">showOfflineWindow</a>
+            </li>
+
+
+            <li>
+              <a href="../showXWindow">showXWindow</a>
+            </li>
+
+
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Typedefs <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+
+
+            <li>
+              <a href="../../typedefs/Contact/">Contact</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/ConversationAttribute/">ConversationAttribute</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/Employee">Employee</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/EmployeeFilter">EmployeeFilter</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/Schedule">Schedule</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/VisitorAttributes/">VisitorAttributes</a>
+            </li>
+
+
+            <li>
+              <a href="../../typedefs/VisitorDisplayedName/">VisitorDisplayedName</a>
+            </li>
+
+
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enums <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+
+
+            <li>
+              <a href="../../enums/ContactType/">ContactType</a>
+            </li>
+
+
+            <li>
+              <a href="../../enums/ConversationAttributeType/">ConversationAttributeType</a>
+            </li>
+
+
+            <li>
+              <a href="../../enums/EmployeeStatus/">EmployeeStatus</a>
+            </li>
+
+
+            <li>
+              <a href="../../enums/Event/">Event</a>
+            </li>
+
+
+            <li>
+              <a href="../../enums/SourceType/">SourceType</a>
+            </li>
+
+
+            <li>
+              <a href="../../enums/WidgetType/">WidgetType</a>
+            </li>
+
+
+          </ul>
+        </li>
+
+
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+            <i class="fa fa-search"></i> Search
+          </a>
+        </li>
+
+        <li>
+          <a rel="next" href="../addEventListener/">
+            <i class="fa fa-arrow-left"></i> Previous
+          </a>
+        </li>
+        <li>
+          <a rel="prev" href="../getEmployees/">
+            Next <i class="fa fa-arrow-right"></i>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
 </div>
 
-        <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#getdepartments">getDepartments</a></li>
-        
-            <li><a href="#_1">Описание</a></li>
-        
-            <li><a href="#_2">Параметры</a></li>
-        
-            <li><a href="#_3">Пример</a></li>
-        
-    
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+<div class="container">
 
-<h2 id="getdepartments">getDepartments</h2>
-<h3 id="_1">Описание</h3>
-<p>Принимает список отделов сайта.</p>
-<h3 id="_2">Параметры</h3>
-<table>
-<thead>
-<tr>
-<th>Имя</th>
-<th>Тип</th>
-<th>Описание</th>
-<th>Обязательность</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>complete</td>
-<td>!function(!Array.&lt; {id: string, name: string} &gt;)</td>
-<td>Обработчик, который вызывается при успешном выполнении операции, принимает массив объектов с данными отделов</td>
-<td>Обязательный</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="_3">Пример</h3>
-<pre><code class="javascript">LiveTex.getDepartments(function(data) {
+  <div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix well" role="complementary">
+      <ul class="nav bs-sidenav">
+
+        <li class="main active"><a href="#getdepartments">getDepartments</a></li>
+
+        <li><a href="#_1">Описание</a></li>
+
+        <li><a href="#_2">Параметры</a></li>
+
+        <li><a href="#_3">Пример</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-9" role="main">
+
+    <h2 id="getdepartments">getDepartments</h2>
+    <h3 id="_1">Описание</h3>
+    <p>Принимает список отделов сайта.</p>
+    <h3 id="_2">Параметры</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Тип</th>
+        <th>Описание</th>
+        <th>Обязательность</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>complete</td>
+        <td>!function(!Array.&lt; {id: string, name: string} &gt;)</td>
+        <td>Обработчик, который вызывается при успешном выполнении операции, принимает массив объектов с данными
+          отделов
+        </td>
+        <td>Обязательный</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="_3">Пример</h3>
+    <pre><code class="javascript">LiveTex.getDepartments(function(data) {
     for(var i=0; i &lt; data.length; i++) {
       alert('Название отдела: ' + data[i].name);
     }
  });
-</code></pre></div>
-            
-        </div>
+</code></pre>
+  </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
+</div>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script>var base_url = '../..';</script>
-        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-        <script src="../../js/base.js"></script>
+<footer class="col-md-12">
+  <hr>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+</footer>
 
-    </body>
+<script src="../../js/jquery-1.10.2.min.js"></script>
+<script src="../../js/bootstrap-3.0.3.min.js"></script>
+<script src="../../js/highlight.pack.js"></script>
+<script>var base_url = '../..';</script>
+<script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+<script src="../../js/base.js"></script>
+
+<div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+            class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          From here you can search these documents. Enter
+          your search terms below.
+        </p>
+        <form role="form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+          </div>
+        </form>
+        <div id="mkdocs-search-results"></div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
 </html>
