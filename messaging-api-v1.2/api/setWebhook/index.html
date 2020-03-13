@@ -187,7 +187,7 @@
     <td>url</td>
     <td>String</td>
     <td>Да</td>
-    <td>URL, по которому будут отсылаться WebHooks оповещения. Поддерживаются только HTTPS соединения. <b>Самоподписанные сертификаты не поддерживаются</b></td>
+    <td>URL, на который будут отсылаться WebHooks оповещения. Поддерживаются только HTTPS соединения. <b>Самоподписанные сертификаты не поддерживаются</b></td>
   </tr>
   <tr>
     <td>webhook_key</td>
@@ -199,7 +199,7 @@
     <td>webhook_event_types</td>
     <td>List[Message]</td>
     <td>Нет</td>
-    <td>Параметр, в котором задается список оповещений, которые будет получать посетитель. Доступные события:    
+    <td>Параметр, в котором задается список оповещений, которые будет отправлять сервис. Доступные события:    
      <a href="../../types/MessageDelivered">MessageDelivered</a>,
      <a href="../../types/TextMessage">TextMessage</a>,
      <a href="../../types/FileMessage">FileMessage</a>,
@@ -207,7 +207,7 @@
      <a href="../../types/Closed">Closed</a>,
      <a href="../../types/HoldMessage">HoldMessage</a>,
      <a href="../../types/EmployeeAvailabilityChanged">EmployeeAvailabilityChanged.</a> 
- Если агрумент не указан, то посетитель получит все доступные оповещения</td> 
+ Если параметр не указан, то сервис отправит все доступные оповещения</td> 
   </tr>
 
 </table>
