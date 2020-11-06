@@ -86,7 +86,7 @@
   },
   {
     "name": "LiveTex.showWelcomeWindow",
-    "description": "Открывает внешнее окно приветствия",
+    "description": "Открывает окно приветствия",
     "example": "LiveTex.showWelcomeWindow();"
   },
   {
